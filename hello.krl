@@ -12,7 +12,7 @@ A first ruleset for the Quickstart
   }
   global {
     hello = function(obj) {
-      msg = "Hello " + obj
+      msg = "Hello Bobby" + obj
       msg
     };
  
@@ -20,7 +20,7 @@ A first ruleset for the Quickstart
   rule hello_world is active {
     select when echo hello
     send_directive("say") with
-      something = "Hello World";
+      something = "Hello Franky";
   }
  
 }
