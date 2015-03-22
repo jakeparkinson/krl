@@ -1,26 +1,23 @@
-ruleset hello_world {
+ruleset echo {
   meta {
-    name "Hello World"
+    name "Echo Server"
     description <<
-A first ruleset for the Quickstart
->>
-    author "Phil Windley"
+      Echo Server
+    >>
+    author "Jake Parkinson"
     logging on
-    sharing on
-    provides hello
- 
   }
-  global {
-    hello = function(obj) {
-      msg = "Hello Bobby" + obj
-      msg
-    };
- 
-  }
-  rule hello_world is active {
+
+  rule hello is active {
     select when echo hello
     send_directive("say") with
-      something = "Hello Franky";
+      something = "Hello World";
   }
- 
+  
+  rule message is active {
+    select when echo message input re#(.*)# setting(m)
+    send_directive("say") with
+      something = m;
+  }
 }
+
