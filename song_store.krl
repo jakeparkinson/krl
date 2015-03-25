@@ -10,10 +10,10 @@ ruleset song_store {
 		provides songs, hymns, secular_music
   }
   global {
-		songs = function() {ent:songs};
-		hymns = function() {ent:hymns};
-		secular_music = function() {songs.difference(hymns);}
-	}
+	songs = function() {ent:songs};
+	hymns = function() {ent:hymns};
+	secular_music = function() {songs.difference(hymns);}
+  }
   
   rule collect_songs is active {
     select when explicit sung song re#(.*)# setting(s)
@@ -43,9 +43,9 @@ ruleset song_store {
     rule clear_songs is active {
     select when song reset
       always{
-			set ent:songs [];
-			set ent:hymns [];
-			log "Cleared both hymns and songs";
+	set ent:songs [];
+	set ent:hymns [];
+	log "Cleared both hymns and songs";
       }
   }
   
