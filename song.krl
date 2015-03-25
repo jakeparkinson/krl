@@ -13,8 +13,8 @@ ruleset see_songs {
     send_directive("sing") with
       song = s;
       fired {
-			raise explicit event 'sung' with song = s
-		}
+	raise explicit event 'sung' with song = s
+      }
 
   }
 }
