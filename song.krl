@@ -14,7 +14,7 @@ ruleset see_songs {
       song = s;
       always {
         log "rule songs with input " + m;
-	raise explicit event 'sung' with song = s
+	raise explicit event sung with song = s
       }
 
   }
